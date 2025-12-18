@@ -10,6 +10,7 @@ using BrainleadApi.Sdk.People.AddPeople;
 using BrainleadApi.Sdk.People.GetPeople;
 using BrainleadApi.Sdk.People.UpdatePeople;
 using fbognini.Sdk;
+using fbognini.Sdk.Utils;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Text;
@@ -42,11 +43,18 @@ public interface IBrainleadApiService
 internal partial class BrainLeadApiService : BaseApiService, IBrainleadApiService
 {
     public BrainleadApiSettings Settings { get; }
+    public QueryStringBuilderFromJsonOptions? QueryStringBuilderFromJsonOptions { get; }
+
 
     public BrainLeadApiService(HttpClient client, IOptions<BrainleadApiSettings> options) 
             : base(client, options: IBrainleadApiService.JsonSerializerOptions)
     {
         Settings = options.Value;
+        QueryStringBuilderFromJsonOptions = new QueryStringBuilderFromJsonOptions()
+        {
+            UseIndexForArrays = false,
+            JsonSerializerOptions = IBrainleadApiService.JsonSerializerOptions
+        };
 
         base.client.DefaultRequestHeaders.Authorization = 
             new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{Settings.ApiKey}:x")));
