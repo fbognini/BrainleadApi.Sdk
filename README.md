@@ -1,5 +1,5 @@
-# ExpediaRapidApi.Sdk
+# BrainleadApi.Sdk
 
-An unofficial [Expedia Rapid API][expedia] .NET SDK, supporting .NET 8.0+.
+An unofficial [Brainlead API][brainlead] .NET SDK, supporting .NET 8.0+.
 
-[expedia]: https://developers.expediagroup.com/docs/products/rapid
+[brainlead]: https://apidocs.brainlead.it/3/index.htm
