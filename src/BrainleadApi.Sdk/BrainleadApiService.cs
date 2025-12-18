@@ -23,7 +23,13 @@ public interface IBrainleadApiService
 {
     public static readonly JsonSerializerOptions JsonSerializerOptions = new()
     {
+#if NET7_0
+#pragma warning disable CS0618 // Type or member is obsolete
+        PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy(),
+#pragma warning restore CS0618 // Type or member is obsolete
+#else
         PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+#endif
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
 
