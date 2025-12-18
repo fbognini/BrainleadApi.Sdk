@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>Francesco Bognini</Authors>
+		<Company>Francesco Bognini</Company>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/fbognini/BrainleadApi.Sdk</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/fbognini/BrainleadApi.Sdk</RepositoryUrl>
+		<Version>1.0.0</Version>
+		<Description>An unofficial Brainlead API .NET SDK, supporting .NET 8.0+</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="fbognini.Sdk" Version="3.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+</Project>
